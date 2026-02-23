@@ -8,10 +8,11 @@ interface SelectProps<T> {
   value: string | number;
   onChange: (value: string | number) => void;
   disabled?: boolean;
+  name: string 
 }
 
 export default function Select<T extends { value: string | number; label: string }>({ 
-  label, icon, options, placeholder, disabled, value, onChange 
+  label, icon, options, placeholder, disabled, value,name, onChange 
 }: SelectProps<T>) {
   
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ export default function Select<T extends { value: string | number; label: string
   return (
     <div className={`flex flex-col gap-2 w-full ${disabled ? 'opacity-80' : ''}`} ref={containerRef}>
       <label className="text-sm font-bold text-gray-700 ml-1">{label}</label>
-      
+      <input type="hidden" name={name} value={value} />
       <div className="relative">
         <div
           onClick={() => !disabled && setIsOpen(!isOpen)}

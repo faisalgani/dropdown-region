@@ -56,6 +56,7 @@ export default function SidebarFilter({ provinces, regencies, districts, loading
         
         <Select 
           label="PROVINSI" 
+          name="province" 
           icon="map" 
           options={provinces} 
           value={selected.provinces}
@@ -65,7 +66,8 @@ export default function SidebarFilter({ provinces, regencies, districts, loading
         />
 
         <Select 
-          label="KOTA/KABUPATEN" 
+          label="KOTA/KABUPATEN"
+          name="regency"  
           icon="location_city" 
           options={regencies} 
           value={selected.region}
@@ -77,6 +79,7 @@ export default function SidebarFilter({ provinces, regencies, districts, loading
         <Select 
           label="KECAMATAN" 
           icon="distance" 
+          name="district" 
           options={districts} 
           value={selected.district}
           disabled={!selected.region || loading.districts}
